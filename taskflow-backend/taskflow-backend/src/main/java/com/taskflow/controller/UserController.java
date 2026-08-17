@@ -1,10 +1,10 @@
 package com.taskflow.controller;
 
-
 import com.taskflow.dto.UserCreateRequest;
 import com.taskflow.dto.UserResponse;
 import com.taskflow.entity.User;
 import com.taskflow.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ public class UserController {
 
 
     @PostMapping
-    public UserResponse createUser(@RequestBody UserCreateRequest userRequest){
+    public UserResponse createUser(@Valid @RequestBody UserCreateRequest userRequest){
         return userService.createUser(userRequest);
     }
 
